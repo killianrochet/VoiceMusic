@@ -11,5 +11,10 @@ module Streaming {
        void supprimerMusique(string music);
        void renommerMusique(string music, string newname);
        void uploadMusic(string path);
+       void speechToText();
+       void readSTT(string axiomeValue);
+       void actionRead();
+       void pause();
+       void resume();
     }
 }

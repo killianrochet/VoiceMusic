@@ -1,17 +1,12 @@
 package com.example.voicemusic;
-import android.annotation.SuppressLint;
 import android.media.MediaPlayer;
-import android.os.Build;
-import androidx.annotation.RequiresApi;
 
 import com.example.voicemusic.Streaming.PlayerPrx;
 import com.zeroc.Ice.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 
 public class Client
 {
@@ -69,7 +64,15 @@ public class Client
     }
 
     public void jouerMusique(){
-        printer.choseMusic("Lady.mp3");
+        printer.speechToText();
+    }
+
+    public void pause(){
+        printer.pause();
+    }
+
+    public void resume(){
+        printer.resume();
     }
 
     public static void main(String[] args){

@@ -33,11 +33,18 @@ public class SecondFragment extends Fragment {
             }
         });
 
+        view.findViewById(R.id.paue).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Client client = new Client();
+                client.pause();
+            }
+        });
         view.findViewById(R.id.play).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Client client = new Client();
-                System.out.println(Arrays.toString(client.printer.getAllMusic()));
+                client.resume();
             }
         });
     }
