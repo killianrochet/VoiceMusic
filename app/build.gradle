@@ -38,6 +38,7 @@ dependencies {
     implementation fileTree(dir: 'C:\\Program Files\\ZeroC', include: ['*.aar', '*.jar'], exclude: [])
     implementation files('C:\\Users\\Killian\\Desktop\\ice-3.7.7')
     implementation files('C:\\Users\\Killian\\Desktop\\ice-3.7.7.jar')
+    implementation 'androidx.media2:media2-player:1.1.3'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }

@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import java.util.Arrays;
+
 public class SecondFragment extends Fragment {
 
     @Override
@@ -28,6 +30,14 @@ public class SecondFragment extends Fragment {
             public void onClick(View view) {
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment);
+            }
+        });
+
+        view.findViewById(R.id.play).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Client client = new Client();
+                System.out.println(Arrays.toString(client.printer.getAllMusic()));
             }
         });
     }

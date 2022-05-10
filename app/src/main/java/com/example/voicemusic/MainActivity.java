@@ -1,5 +1,6 @@
 package com.example.voicemusic;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -12,17 +13,30 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Client client = new Client();
+        List<String> allMusic = new ArrayList<String>(client.getAllMusic());
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        TextView myAwesomeTextView = (TextView)findViewById(R.id.music1);
+        TextView myAwesomeTextView2 = (TextView)findViewById(R.id.music2);
+
+        myAwesomeTextView.setText(allMusic.get(0));
+        myAwesomeTextView2.setText(allMusic.get(1));
+
     }
 
     @Override
@@ -45,19 +59,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public static void main(String[] args)
-    {
-        try(com.zeroc.Ice.Communicator communicator = com.zeroc.Ice.Util.initialize(args))
-        {
-            com.zeroc.Ice.ObjectPrx base = communicator.stringToProxy("SimplePrinter:default -p 10000");
-            com.example.voicemusic.Streaming.PlayerPrx printer = com.example.voicemusic.Streaming.PlayerPrx.checkedCast(base);
-            if(printer == null)
-            {
-                throw new Error("Invalid proxy");
-            }
-            System.out.println(Arrays.toString(printer.getAllMusic()));
-        }
     }
 }
